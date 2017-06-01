@@ -1,6 +1,5 @@
 class Version < ApplicationRecord
-  # belongs_to :user
-  # belongs_to :idea
+  belongs_to :idea
 
   validates_uniqueness_of :number, scope => :idea_id
   
