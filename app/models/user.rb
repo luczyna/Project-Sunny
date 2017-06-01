@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-end
-
-class User < ApplicationRecord
+  has_many :ideas
   # moving to the controller, with permitted parameters
   # https://stackoverflow.com/a/17371364
   # attr_accessible :email, :username, :password_confirmation
