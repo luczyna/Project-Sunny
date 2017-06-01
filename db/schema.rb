@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601042001) do
+ActiveRecord::Schema.define(version: 20170601042805) do
 
   create_table "ideas", force: :cascade do |t|
     t.string   "name"
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 20170601042001) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "username"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "{:foreign_key=>true}_id"
+    t.index ["{:foreign_key=>true}_id"], name: "index_users_on_{:foreign_key=>true}_id"
   end
 
   create_table "versions", force: :cascade do |t|
