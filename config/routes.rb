@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'log_out'
   resources :users
   resources :sessions
+
+  get 'dashboard' => 'dashboard#index'
 end
