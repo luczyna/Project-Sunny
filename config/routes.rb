@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'signup' => 'users#new', :as => 'sign_up'
+  get 'login'  => 'sessions#new', :as => 'log_in'
+  get 'logout' => 'sessions#destroy', :as => 'log_out'
+  resources :users
+  resources :sessions
 end
