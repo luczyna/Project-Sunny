@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# User.create(
+#   username: 'ana',
+#   email: 'asd@asd.com',
+#   password_salt: BCrypt::Engine::generate_salt,
+#   password_hash: BCrypt::Engine::hash_secret('poi', self.password_salt)
+#   )
