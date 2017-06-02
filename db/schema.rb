@@ -10,37 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601050022) do
+ActiveRecord::Schema.define(version: 20170601034509) do
 
   create_table "ideas", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "published"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "{:foriegn_key=>true}_id"
-    t.index ["{:foriegn_key=>true}_id"], name: "index_ideas_on_{:foriegn_key=>true}_id"
+    t.string "name"
+    t.boolean "published"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.string   "username"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "{:foreign_key=>true}_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["{:foreign_key=>true}_id"], name: "index_users_on_{:foreign_key=>true}_id"
+    t.string "email"
+    t.string "password_hash"
+    t.string "password_salt"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "versions", force: :cascade do |t|
-    t.integer  "number"
-    t.text     "content"
-    t.integer  "user_id"
-    t.text     "goal"
+    t.integer "number"
+    t.text "content"
+    t.text "goal"
+    t.integer "idea_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_versions_on_user_id"
+    t.index ["idea_id"], name: "index_versions_on_idea_id"
   end
 
 end

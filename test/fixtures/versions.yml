@@ -3,11 +3,9 @@
 one:
   number: 1
   content: MyText
-  user: one
   goal: MyText
 
 two:
   number: 1
   content: MyText
-  user: two
   goal: MyText

@@ -1,1 +1,12 @@
-<h1>Idea Page</h1>
+<% if @warning %>
+  <p>Sorry, we can't find this particular idea.</p>
+<% else %>
+  <% if @is_current_users %>
+    <p><code>LINK TO EDIT</code> | published: <em><%=@idea.published %></em></p>
+  <% end %>
+
+  <h1><%= @idea.name %></h1>
+  <h3><%= @version.goal %></h3>
+
+  <p><%= @version.content %></p>
+<% end %>
