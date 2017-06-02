@@ -4,8 +4,8 @@ class DashboardController < ApplicationController
   def index
     # get users ideas
     # separate by published status
-    # @published_ideas = Ideas.where(user: current_user).only(published: true)
-    # @other_ideas = Ideas.where(user: current_user).only(published: false)
+    @published_ideas = Idea.where(user_id: current_user.id, published: true)
+    @other_ideas = Idea.where(user_id: current_user.id, published: false)
   end
 
   private

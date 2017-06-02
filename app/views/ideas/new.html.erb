@@ -20,7 +20,7 @@
   </div>
   
   <p>
-    <%= check_box_tag :published, false, false, disabled: @too_many_published %>
+    <%= check_box_tag :published, true, false, disabled: @too_many_published %>
     <%= label_tag :published, nil, class: (@too_many_published) ? 'grey-text' : '' %>
   </p>
 

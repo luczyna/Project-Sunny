@@ -8,9 +8,29 @@
 <div>
   <div>
     <h2>published ideas</h2>
+
+    <div>
+      <% if @published_ideas.empty? %>
+        <p><em>Looks like you don't have any published ideas... yet!</em></p>
+      <% end %>
+
+      <% @published_ideas.each do |idea| %>
+        <div><p><%= idea.name %></p></div>
+      <% end %>
+    </div>
   </div>
   
   <div>
     <h2>unpublished ideas</h2>
+
+    <div>
+      <% if @other_ideas.empty? %>
+        <p><em>There aren't any unpublished ideas... <%= link_to 'make one!', new_idea_path %></em></p>
+      <% end %>
+
+      <% @other_ideas.each do |idea| %>
+        <div><p><%= idea.name %></p></div>
+      <% end %>
+    </div>
   </div>
 </div>
