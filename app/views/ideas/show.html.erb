@@ -2,7 +2,12 @@
   <p>Sorry, we can't find this particular idea.</p>
 <% else %>
   <% if @is_current_users %>
-    <p><code>LINK TO EDIT</code> | published: <em><%=@idea.published %></em></p>
+    <p>
+      <%= link_to 'edit idea', edit_idea_url, id: @idea.id %>
+       | published: <em><%=@idea.published %></em>
+     </p>
+
+    <!-- TODO add a link to publish or unpublish idea quickly here -->
   <% end %>
 
   <h1><%= @idea.name %></h1>
