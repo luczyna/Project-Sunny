@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+window.addEventListener('load', cleanUpWindowReady, false);
+
+//////
+
+function cleanUpWindowReady() {
+  window.removeEventListener('load', cleanUpWindowReady);
+  findEditForms();
+}
