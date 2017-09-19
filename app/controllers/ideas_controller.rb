@@ -77,6 +77,21 @@ class IdeasController < ApplicationController
 
   # PATCH/PUT
   def update
+    idea = Idea.find_by_id(params[:id])
+    last_version = Version.where(idea_id: idea).last
+
+    version = Version.new(
+      idea_id: idea.id,
+      goal: params[:goal],
+      content: params[:content],
+      number: last_version.number + 1
+    )
+
+    if version.save
+      redirect_to idea
+    else
+      # TODO show the errors
+    end
   end
 
   # DELETE

@@ -10,7 +10,7 @@
     <!-- TODO add a link to publish or unpublish idea quickly here -->
   <% end %>
 
-  <h1><%= @idea.name %></h1>
+  <h1><%= @idea.name %> <small>version #<%= @version.number %></small></h1>
   <h3><%= @version.goal %></h3>
 
   <p><%= @version.content %></p>
