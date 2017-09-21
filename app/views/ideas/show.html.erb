@@ -10,6 +10,8 @@
       <% else %>
         unpublished <%= link_to "publish this idea", idea_publish_path(@idea.id), method: "put" %>
       <% end %>
+
+      <%= link_to 'delete idea', idea_path, id: @idea.id, method: 'delete' %>
      </p>
   <% end %>
 

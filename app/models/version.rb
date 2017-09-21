@@ -3,8 +3,8 @@ class Version < ApplicationRecord
 
   validates :idea_id, presence: true
   validates :number, presence: true, uniqueness: { scope: :idea }
-  
-  validates :content, 
+
+  validates :content,
     presence: { message: "We need an idea description." },
     length: { maximum: 500, message: "Please shorten your idea description." }
 

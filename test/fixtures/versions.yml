@@ -1,11 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+cream_with_coffee:
   number: 1
-  content: MyText
-  goal: MyText
+  goal: Drink coffee with cream
+  content: Fancy coffee tastes really good with good cream
+  idea: coffee
 
-two:
+honey_with_coffee:
+  number: 2
+  goal: Drink coffee with honey
+  content: Fancy coffee benefits from adding a little sweetness to cut the bitter taste
+  idea: coffee
+
+cream_and_honey:
   number: 1
-  content: MyText
-  goal: MyText
+  goal: Find delicious combinations for cream
+  content: Try mixing cream and honey together for a cool treat in the heat
+  idea: cream
+
+cream_and_strawberries:
+  number: 2
+  goal: Find delicious combinations for cream
+  content: Try whipping the cream, and eating with strawberries. Wow!
+  idea: cream
+
+good_idea_generation:
+  number: 1
+  goal: Have great ideas
+  content: I have some great ideas
+  idea: good_idea
+
+good_idea_progression:
+  number: 2
+  goal: Have great ideas
+  content: I have some great ideas, but how do I get more? Thre must be a way
+  idea: good_idea
+
+good_idea_realisation:
+  number: 3
+  goal: Actually have great ideas
+  content: This hasn't actually been an idea... how do I make it one, and how do I make it great?
+  idea: good_idea

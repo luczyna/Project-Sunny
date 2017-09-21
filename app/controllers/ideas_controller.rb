@@ -107,6 +107,12 @@ class IdeasController < ApplicationController
 
   # DELETE
   def destroy
+    idea = Idea.find(params[:id])
+    if idea.destroy
+      redirect_to dashboard_url
+    else
+      # TODO show errors
+    end
   end
 
   private
