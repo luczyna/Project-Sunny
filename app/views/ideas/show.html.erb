@@ -4,10 +4,13 @@
   <% if @is_current_users %>
     <p>
       <%= link_to 'edit idea', edit_idea_url, id: @idea.id %>
-       | published: <em><%=@idea.published %></em>
+      <span> | </span>
+      <% if @idea.published %>
+        published <%= link_to "unpublish this idea", idea_publish_path(@idea.id), method: "put" %>
+      <% else %>
+        unpublished <%= link_to "publish this idea", idea_publish_path(@idea.id), method: "put" %>
+      <% end %>
      </p>
-
-    <!-- TODO add a link to publish or unpublish idea quickly here -->
   <% end %>
 
   <h1><%= @idea.name %> <small>version #<%= @version.number %></small></h1>

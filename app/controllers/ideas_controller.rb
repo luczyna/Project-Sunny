@@ -94,6 +94,17 @@ class IdeasController < ApplicationController
     end
   end
 
+  def publish
+    idea = Idea.find_by_id(params[:idea_id])
+    idea.published = !idea.published
+
+    if idea.save
+      redirect_to idea
+    else
+      # TODO show errors
+    end
+  end
+
   # DELETE
   def destroy
   end
