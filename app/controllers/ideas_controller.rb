@@ -23,6 +23,25 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @warning = false
+    is_current_users = nil;
+    @idea = Idea.find_by_id(params[:id])
+
+    if @idea
+      # idea exists, confirm it belongs to the current user
+      is_current_users = @idea.user_id == current_user.id
+
+      if is_current_users
+        @version_content = Version.where(idea_id: @idea.id).last
+      else
+        # not your idea, son!
+        print('not your idea, son!\n')
+        print('user ', current_user.id, ' tried to see idea ', @idea.id, ' which belongs to ', @idea.user_id)
+        redirect_to dashboard_url
+      end
+    else
+      @warning = true
+    end
   end
 
   def new
@@ -43,7 +62,7 @@ class IdeasController < ApplicationController
     else
       idea.published = false
     end
-    
+
     if idea.save
       version = Version.new(idea_id: idea.id, goal: params[:goal], content: params[:content], number: 1)
 
@@ -58,10 +77,42 @@ class IdeasController < ApplicationController
 
   # PATCH/PUT
   def update
+    idea = Idea.find_by_id(params[:id])
+    last_version = Version.where(idea_id: idea).last
+
+    version = Version.new(
+      idea_id: idea.id,
+      goal: params[:goal],
+      content: params[:content],
+      number: last_version.number + 1
+    )
+
+    if version.save
+      redirect_to idea
+    else
+      # TODO show the errors
+    end
+  end
+
+  def publish
+    idea = Idea.find_by_id(params[:idea_id])
+    idea.published = !idea.published
+
+    if idea.save
+      redirect_to idea
+    else
+      # TODO show errors
+    end
   end
 
   # DELETE
   def destroy
+    idea = Idea.find(params[:id])
+    if idea.destroy
+      redirect_to dashboard_url
+    else
+      # TODO show errors
+    end
   end
 
   private

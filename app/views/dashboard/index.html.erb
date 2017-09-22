@@ -14,12 +14,12 @@
         <p><em>Looks like you don't have any published ideas... yet!</em></p>
       <% end %>
 
-      <% @published_ideas.each do |idea| %>
-        <div><p><%= idea.name %></p></div>
+      <% @published_ideas.each_with_index do |idea, idea_index| %>
+        <p><%= link_to idea.name, idea, id: idea_index %></p>
       <% end %>
     </div>
   </div>
-  
+
   <div>
     <h2>unpublished ideas</h2>
 
@@ -28,8 +28,8 @@
         <p><em>There aren't any unpublished ideas... <%= link_to 'make one!', new_idea_path %></em></p>
       <% end %>
 
-      <% @other_ideas.each do |idea| %>
-        <div><p><%= idea.name %></p></div>
+      <% @other_ideas.each_with_index do |idea, idea_index| %>
+        <p><%= link_to idea.name, idea, id: idea_index %></p>
       <% end %>
     </div>
   </div>
