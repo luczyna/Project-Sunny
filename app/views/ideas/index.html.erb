@@ -1,3 +1,8 @@
-<h1>Ideas Shared</h1>
+<h1>Shared Ideas</h1>
+<% if @ideas.empty? %>
+  <p>Looks like no one has shared any ideas <strong>yet...</strong></p>
+<% end %>
 
-<%= @ideas.count %>
+<% @ideas.each_with_index do |idea, idea_index| %>
+  <p><%= link_to idea.name, idea %> - <em><%= idea.user.username %></em></p>
+<% end %>
