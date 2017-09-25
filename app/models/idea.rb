@@ -15,12 +15,13 @@ end
 class Idea < ApplicationRecord
   belongs_to :user
   has_many :versions, dependent: :destroy
+  has_many :upvotes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { scope: :user }
   validates :user_id, presence: true
   validates_associated :versions
 
-  # we will want to validate that 
+  # we will want to validate that
   # a user has at most 5 published ideas
   validates_with PublishedIdeaLimiterValidator
 end

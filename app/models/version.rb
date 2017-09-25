@@ -1,5 +1,6 @@
 class Version < ApplicationRecord
   belongs_to :idea
+  has_many :upvotes
 
   validates :idea_id, presence: true
   validates :number, presence: true, uniqueness: { scope: :idea }
