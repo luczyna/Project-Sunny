@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :authenticate
 
   def index
-    @ideas = Idea.where(published: true)
+    @ideas = Idea.where(published: true).where.not(user_id: current_user.id)
   end
 
   def show
