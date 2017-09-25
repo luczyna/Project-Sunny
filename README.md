@@ -19,6 +19,10 @@ bundle install
 rails server
 ```
 
-### Seed Database
+### Seed the Database
 
-`TODO` We plan on setting up a seed database, so that when you start off from scratch or need to wipe your database, you can automatically create some relevant data.
+When starting out, you can populate the app with data for demo purposes: follow the standard Rails seeding process.
+
+``` bash
+rails db:reset
+```
