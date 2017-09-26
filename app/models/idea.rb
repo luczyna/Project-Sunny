@@ -17,6 +17,8 @@ class Idea < ApplicationRecord
   has_many :versions, dependent: :destroy
   has_many :upvotes, through: :versions
 
+  scope :published, -> { where(published: true) }
+
   validates :name, presence: true, uniqueness: { scope: :user }
   validates :user_id, presence: true
   validates_associated :versions
