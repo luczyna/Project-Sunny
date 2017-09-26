@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  # TODO ideas need to be dependant on destroy (user is gone, so are their ideas)
-  has_many :ideas
-  has_many :upvotes, dependent: :destroy
+  has_many :ideas, dependent: :destroy
+  has_many :versions, through: :ideas
+  has_many :upvotes, through: :versions, dependent: :destroy
+
   # moving to the controller, with permitted parameters
   # https://stackoverflow.com/a/17371364
   # attr_accessible :email, :username, :password_confirmation

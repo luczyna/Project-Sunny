@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  idea: one
-  user: one
-  version: one
-
-two:
-  idea: two
+coffee_addict_agrees:
+  # idea: coffee
   user: two
-  version: two
+  version: honey_with_coffee
+
+coffee_addict_past_agreement:
+  # idea: coffee
+  user: two
+  version: cream_with_coffee
+
+good_idea_lover:
+  # idea: good_idea
+  user: one
+  version: good_idea_progression
