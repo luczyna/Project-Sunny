@@ -13,6 +13,18 @@
 
       <%= link_to 'delete idea', idea_path, id: @idea.id, method: 'delete' %>
      </p>
+  <% else %>
+    <p>
+      <span>Current votes: <%= @upvotes %></span>
+      <% if @has_voted_in_the_past %>
+        <span>you've voted on a previous version</span>
+        <!-- TODO offer link to see version voted on, update vote there?? -->
+      <% elsif !@has_already_voted %>
+        <%= link_to 'Vote on this idea', cast_vote_path(@version.id), method: 'POST' %></p>
+      <% else %>
+        <span>you've supported this idea</span>
+        <%= link_to 'Undue your Vote', remove_vote_path(@vote.id, @idea.id), method: 'DELETE' %></p>
+      <% end %>
   <% end %>
 
   <h1><%= @idea.name %> <small>version #<%= @version.number %></small></h1>

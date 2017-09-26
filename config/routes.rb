@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     put :publish
   end
 
+  # resources :upvotes, only: [:create, :destroy]
+  post 'upvote/:version' => 'upvotes#create', :as => 'cast_vote'
+  delete 'upvote/:vote/:idea' => 'upvotes#destroy', :as => 'remove_vote'
+
   get 'dashboard' => 'dashboard#index'
 end
