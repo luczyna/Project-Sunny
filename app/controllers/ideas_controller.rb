@@ -10,22 +10,25 @@ class IdeasController < ApplicationController
     @is_current_users = false
     @idea = Idea.find_by_id(params[:id])
 
-    if @idea
-      @is_current_users = @idea.user_id == current_user.id
-      if (@idea.published || (!@idea.published && @is_current_users))
-        @version = Version.where(idea_id: @idea.id).last
-        @upvotes = Upvote.where(version: @idea.versions).count
-        @has_already_voted = Upvote.where(version: @version, user: current_user).count > 0
-        @has_voted_in_the_past = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).count > 0
-
-        if @has_already_voted
-          @vote = Upvote.where(version: @version, user: current_user).take
-        end
-      else
-        @warning = true
-      end
-    else
+    if !@idea
       @warning = true
+      return
+    end
+
+    @is_current_users = @idea.user_id == current_user.id
+
+    if (!@is_current_users && !@idea.published)
+      @warning = true
+      return
+    end
+
+    @version = Version.where(idea_id: @idea.id).last
+    @upvotes = Upvote.where(version: @idea.versions).count
+    @has_already_voted = Upvote.where(version: @version, user: current_user).count > 0
+    @has_voted_in_the_past = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).count > 0
+
+    if @has_already_voted
+      @vote = Upvote.where(version: @version, user: current_user).take
     end
   end
 
