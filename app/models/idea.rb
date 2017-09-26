@@ -15,7 +15,7 @@ end
 class Idea < ApplicationRecord
   belongs_to :user
   has_many :versions, dependent: :destroy
-  has_many :upvotes, dependent: :destroy
+  has_many :upvotes, through: :versions
 
   validates :name, presence: true, uniqueness: { scope: :user }
   validates :user_id, presence: true

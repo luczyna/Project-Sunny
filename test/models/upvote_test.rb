@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UpvoteTest < ActiveSupport::TestCase
+  self.use_transactional_tests = true
+
   test "creating an Upvote" do
     user = User.first
     idea = Idea.where(user: User.second).first
@@ -21,11 +23,11 @@ class UpvoteTest < ActiveSupport::TestCase
     end
   end
 
-  # test "deleting user also deletes all of their upvotes" do
-  #   user = User.first
-  #   assert_not_empty(Upvote.where(user: user))
-  #
-  #   user.destroy
-  #   assert_empty(Upvote.where(user: user))
-  # end
+  test "deleting user also deletes all of their upvotes" do
+    user = User.first
+    assert_not_empty(Upvote.where(user: user))
+
+    user.destroy
+    assert_empty(Upvote.where(user: user))
+  end
 end
