@@ -1,24 +1,28 @@
-# README
+# Project Sunny
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+_This is a POC for a community that encourages it's members to curate ideas that keep them up at night, share their best with their peers, and gather feedback from everyone._
 
-Things you may want to cover:
+This is a Rails app, and we have at least the following versions:
 
-* Ruby version
+```
+VERSIONS
+ruby: 2.4
+rails: 5.1
+```
 
-* System dependencies
+# Local Development
 
-* Configuration
+As you would with other Rails app, after you've download the repo to your machine:
 
-* Database creation
+``` bash
+bundle install
+rails server
+```
 
-* Database initialization
+### Seed the Database
 
-* How to run the test suite
+When starting out, you can populate the app with data for demo purposes: follow the standard Rails seeding process.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` bash
+rails db:reset
+```

@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+  font-family: sans-serif;
+}
+
+textarea {
+  width: 300px;
+  min-height: 100px;
+  padding: 10px;
+}
+
+input, textarea {
+  font-size: 0.9em;
+}

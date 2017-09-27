@@ -1,0 +1,31 @@
+<h1>Idea Creation</h1>
+
+<%= form_tag ideas_path do %>
+  <p>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </p>
+
+
+  <p>
+    <%= label_tag :goal %>
+    <%= text_field_tag :goal %>
+  </p>
+
+  <div>
+    <p>
+      <%= label_tag :content %>
+    </p>
+    <%= text_area_tag :content %>
+  </div>
+  
+  <p>
+    <%= check_box_tag :published, true, false, disabled: @too_many_published %>
+    <%= label_tag :published, nil, class: (@too_many_published) ? 'grey-text' : '' %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Save New Idea' %>
+  </p>
+
+<% end %>

@@ -1,0 +1,45 @@
+<h1>Dashboard</h1>
+
+<div class="dashboard-container">
+  <div class="user-details">
+    <p>user email: <%= current_user.email %></p>
+    <p><code>TODO</code> link to make a new idea</p>
+
+    <h3>Votes</h3>
+    <ul>
+      <% @votes.each do |v| %>
+      <li><%= v.version.goal %> (<%= v.version.number %>) - <%= v.version.idea.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="user-ideas">
+    <div>
+      <h2>published ideas</h2>
+
+      <div>
+        <% if @published_ideas.empty? %>
+          <p><em>Looks like you don't have any published ideas... yet!</em></p>
+        <% end %>
+
+        <% @published_ideas.each_with_index do |idea, idea_index| %>
+          <p><%= link_to idea.name, idea, id: idea_index %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <h2>unpublished ideas</h2>
+
+      <div>
+        <% if @other_ideas.empty? %>
+          <p><em>There aren't any unpublished ideas... <%= link_to 'make one!', new_idea_path %></em></p>
+        <% end %>
+
+        <% @other_ideas.each_with_index do |idea, idea_index| %>
+          <p><%= link_to idea.name, idea, id: idea_index %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

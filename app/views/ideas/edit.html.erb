@@ -1,0 +1,23 @@
+<% if @warning %>
+  <p>Sorry, we can't find this particular idea.</p>
+<% else %>
+  <%= form_tag idea_path, method: 'patch', id: @idea.id,  class: 'edit-idea-form' do %>
+    <h1><%= @idea.name %></h1>
+
+    <p>
+      <%= label_tag :goal %>
+      <%= text_field_tag :goal, @version_content.goal %>
+    </p>
+
+    <div>
+      <p>
+        <%= label_tag :content %>
+      </p>
+      <%= text_area_tag :content, @version_content.content %>
+    </div>
+
+    <!-- TODO add published section here as well?? or elsewhere -->
+
+    <%= submit_tag 'Update Idea', disabled: true, data: { disabled_with: 'Updating...' } %>
+  <% end %>
+<% end %>

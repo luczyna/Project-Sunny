@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: barry@string.com
+  password_hash: MyString
+  password_salt: MyString
+  username: Barry
+
+two:
+  email: larry@string.com
+  password_hash: MyString
+  password_salt: MyString
+  username: Larry
