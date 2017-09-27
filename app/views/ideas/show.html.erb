@@ -1,6 +1,10 @@
 <% if @warning %>
   <p>Sorry, we can't find this particular idea.</p>
 <% else %>
+  <% if @version_warning %>
+    <p>Sorry, we can't find that version of the idea: showing you the latest one.</p>
+  <% end %>
+  
   <p>Current votes: <%= @upvotes %></p>
 
   <% if @is_current_users %>
@@ -9,7 +13,7 @@
     <%= render 'idea_controls_visitor', local: { vote: @vote, idea: @idea, version: @version, past_vote: @has_voted_in_the_past, already_voted: @has_already_voted } %>
   <% end %>
 
-  <h1><%= @idea.name %> <small>version #<%= @version.number %></small></h1>
+  <h1><%= @idea.name %> <small>version #<%= @version.number %></small> <% if @is_old_version %><small>old version</small><% end %></h1>
 
   <% if !@is_current_users %>
   <h2>by <%= @current_user.username %></h2>
