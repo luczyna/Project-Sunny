@@ -1,26 +1,27 @@
-<h1>Sign up for Project Sunny</h1>
+<h2 class="mb-3">Sign Up <span aria-hidden="true">:)</span></h2>
+
 <%= form_for @user do |f| %>
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
+  <div class="form-group">
+    <%= f.label :email, class: 'form-control-label' %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </p>
+  <div class="form-group">
+    <%= f.label :username, class: 'form-control-label' %>
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
+  <div class="form-group">
+    <%= f.label :password, class: 'form-control-label' %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </p>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: 'form-control-label' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>
