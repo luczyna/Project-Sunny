@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_many :ideas
+  has_many :upvotes, dependent: :destroy
+  has_many :ideas, dependent: :destroy
+  has_many :versions, through: :ideas
+
   # moving to the controller, with permitted parameters
   # https://stackoverflow.com/a/17371364
   # attr_accessible :email, :username, :password_confirmation
@@ -30,4 +33,3 @@ class User < ApplicationRecord
     end
   end
 end
-

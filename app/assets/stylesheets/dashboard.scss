@@ -1,3 +1,20 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+  grid-column-gap: 10px;
+  grid-template-areas: "details ideas";
+
+  .user-details {
+    grid-area: "details";
+    background: #e2e2e2;
+  }
+
+  .user-ideas {
+    grid-area: "ideas";
+  }
+
+  .user-details,
+  .user-ideas {
+    padding: 5px;
+  }
+}

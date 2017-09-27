@@ -1,0 +1,11 @@
+<p>
+  <%= link_to 'edit idea', edit_idea_url, id: @idea.id %>
+  <span> | </span>
+  <% if @idea.published %>
+    published <%= link_to "unpublish this idea", idea_publish_path(@idea.id), method: "put" %>
+  <% else %>
+    unpublished <%= link_to "publish this idea", idea_publish_path(@idea.id), method: "put" %>
+  <% end %>
+
+  <%= link_to 'delete idea', idea_path, id: @idea.id, method: 'delete' %>
+</p>

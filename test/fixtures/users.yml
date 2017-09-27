@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
+  email: barry@string.com
   password_hash: MyString
   password_salt: MyString
-  username: MyString
+  username: Barry
 
 two:
-  email: MyString
+  email: larry@string.com
   password_hash: MyString
   password_salt: MyString
-  username: MyString
+  username: Larry

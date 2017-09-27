@@ -1,0 +1,13 @@
+<p>
+  <% if @past_vote %>
+    you've voted on a previous version
+    <!-- TODO offer link to see version voted on, update vote there?? -->
+
+  <% elsif !@already_voted %>
+    <%= link_to 'Vote on this idea', cast_vote_path(@version.id), method: 'POST' %>
+
+  <% else %>
+    you've supported this idea 
+    <%= link_to 'Undue your Vote', remove_vote_path(@vote.id, @idea.id), method: 'DELETE' %>
+  <% end %>
+</p>
