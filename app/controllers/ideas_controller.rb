@@ -41,7 +41,7 @@ class IdeasController < ApplicationController
     @is_old_version = @version.number != @version_count
     @upvotes = Upvote.where(version: @idea.versions).count
     @has_already_voted = Upvote.where(version: @version, user: current_user).count > 0
-    @has_voted_in_the_past = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).count > 0
+    @past_vote = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).take
 
     if @has_already_voted
       @vote = Upvote.where(version: @version, user: current_user).take

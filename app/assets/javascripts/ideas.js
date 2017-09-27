@@ -1,4 +1,4 @@
-function findEditForms() {
+function findIdeaEditForms() {
   var editIdeaForms = document.getElementsByClassName('edit-idea-form');
 
   if (editIdeaForms.length) {

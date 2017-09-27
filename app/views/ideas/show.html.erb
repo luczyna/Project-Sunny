@@ -10,7 +10,7 @@
   <% if @is_current_users %>
     <%= render 'idea_controls_owner', local: { idea: @idea } %>
   <% else %>
-    <%= render 'idea_controls_visitor', local: { vote: @vote, idea: @idea, version: @version, past_vote: @has_voted_in_the_past, already_voted: @has_already_voted } %>
+    <%= render 'idea_controls_visitor', local: { vote: @vote, idea: @idea, version: @version, past_vote: @past_vote, has_already_voted: @has_already_voted } %>
   <% end %>
 
   <h1><%= @idea.name %> <small>version #<%= @version.number %></small> <% if @is_old_version %><small>old version</small><% end %></h1>
@@ -29,9 +29,11 @@
     <% end %>
 
     <% if @is_old_version %>
-      <%= link_to_unless(@version.number + 1 != @version_count, 'newest version', idea_path(@idea.id)) do |link_params|
-        link_to 'next version', idea_path(id: @idea.id, version: @version.number + 1)
-      end %>
+      <% unless @version.number + 1 == @version_count #next version is the newest %>
+        <%= link_to 'next version', idea_path(id: @idea.id, version: @version.number + 1) %>
+      <% end %>
+
+      <%= link_to 'newest vesrion', idea_path(@idea.id) %>
     <% end %>
 
   </footer>
