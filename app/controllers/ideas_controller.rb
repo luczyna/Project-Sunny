@@ -32,11 +32,13 @@ class IdeasController < ApplicationController
         @version = nil
       else
         @version = @version.take
-        @is_old_version = true
       end
     end
 
-    @version ||= Version.where(idea_id: @idea.id).order(number: :asc).last
+    @versions = Version.where(idea_id: @idea.id).order(number: :asc)
+    @version_count = @versions.count
+    @version ||= @versions.last
+    @is_old_version = @version.number != @version_count
     @upvotes = Upvote.where(version: @idea.versions).count
     @has_already_voted = Upvote.where(version: @version, user: current_user).count > 0
     @has_voted_in_the_past = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).count > 0
