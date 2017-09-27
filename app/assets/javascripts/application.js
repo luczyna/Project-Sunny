@@ -18,11 +18,10 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-window.addEventListener('load', cleanUpWindowReady, false);
+document.addEventListener('turbolinks:load', mockPageLoad, false);
 
 //////
 
-function cleanUpWindowReady() {
-  window.removeEventListener('load', cleanUpWindowReady);
+function mockPageLoad() {
   findIdeaEditForms();
 }
