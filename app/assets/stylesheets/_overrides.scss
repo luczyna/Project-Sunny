@@ -1,0 +1,11 @@
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 450px,
+  md: 500px,
+  lg: 650px,
+  xl: 800px
+);
+// @include _assert-ascending($container-max-widths, "$container-max-widths");
