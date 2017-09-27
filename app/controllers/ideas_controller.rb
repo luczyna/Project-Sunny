@@ -7,6 +7,8 @@ class IdeasController < ApplicationController
 
   def show
     @warning = false
+    @version_warning = false
+    @is_old_version = false
     @is_current_users = false
     @idea = Idea.find_by_id(params[:id])
 
@@ -22,7 +24,21 @@ class IdeasController < ApplicationController
       return
     end
 
-    @version = Version.where(idea_id: @idea.id).last
+    if params[:version].present?
+      @version = Version.where(idea: @idea, number: params[:version])
+
+      if @version.empty?
+        @version_warning = true
+        @version = nil
+      else
+        @version = @version.take
+      end
+    end
+
+    @versions = Version.where(idea_id: @idea.id).order(number: :asc)
+    @version_count = @versions.count
+    @version ||= @versions.last
+    @is_old_version = @version.number != @version_count
     @upvotes = Upvote.where(version: @idea.versions).count
     @has_already_voted = Upvote.where(version: @version, user: current_user).count > 0
     @has_voted_in_the_past = Upvote.where(user: current_user, version: @idea.versions).where.not(version: @version).count > 0
