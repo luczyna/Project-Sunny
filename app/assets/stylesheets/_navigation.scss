@@ -1,0 +1,6 @@
+// only shove a flex-item over when we're above a certain threshold
+.nav-shove-when-inline {
+  @include media-breakpoint-up(sm) {
+    margin-left: auto;
+  }
+}
