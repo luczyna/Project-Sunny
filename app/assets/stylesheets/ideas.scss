@@ -1,3 +1,14 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.idea-container {
+  @include media-breakpoint-up(lg) {
+    @include make-row();
+    // overwrite the negative margins >:(
+    margin: 0;
+    justify-content: space-between;
+
+    .idea.card {
+      flex: 0 0 auto;
+      width: 48.75%;
+      margin-bottom: $spacer;
+    }
+  }
+}

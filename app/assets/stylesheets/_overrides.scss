@@ -9,3 +9,8 @@ $container-max-widths: (
   xl: 800px
 );
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// Simple updates and additions to BS Styles
+.card-title small {
+  font-size: 60%;
+}

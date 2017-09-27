@@ -1,8 +1,16 @@
-<h1>Shared Ideas</h1>
+<h2 class="mb-3">Shared Ideas</h2>
+
 <% if @ideas.empty? %>
   <p>Looks like no one has shared any ideas <strong>yet...</strong></p>
 <% end %>
 
+<% unless @ideas.empty? %><div class="idea-container"><% end %>
 <% @ideas.each_with_index do |idea, idea_index| %>
-  <p><%= link_to idea.name, idea %> - <em><%= idea.user.username %></em></p>
+  <div class="idea card">
+    <div class="card-body">
+      <h3 class="card-title"><%= link_to idea.name, idea %> <small class="text-muted">by <em><%= idea.user.username %></em></small></h3>
+      <p class="card-text"><%= idea.versions.last.goal %> (<em>version #<%= idea.versions.count %></em>)</p>
+    </div>
+  </div>
 <% end %>
+<% unless @ideas.empty? %></div><% end %>
