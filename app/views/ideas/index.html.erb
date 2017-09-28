@@ -5,12 +5,7 @@
 <% end %>
 
 <% unless @ideas.empty? %><div class="idea-container"><% end %>
-<% @ideas.each_with_index do |idea, idea_index| %>
-  <div class="idea card">
-    <div class="card-body">
-      <h3 class="card-title"><%= link_to idea.name, idea %> <small class="text-muted">by <em><%= idea.user.username %></em></small></h3>
-      <p class="card-text"><%= idea.versions.last.goal %> (<em>version #<%= idea.versions.count %></em>)</p>
-    </div>
-  </div>
+<% @ideas.each do |idea| %>
+  <%= render 'shared/idea_card', idea: idea, belongs_to_logged_in_user: false %>
 <% end %>
 <% unless @ideas.empty? %></div><% end %>
