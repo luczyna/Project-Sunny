@@ -1,23 +1,22 @@
 <% if @warning %>
   <%= render 'cant_find_warning' %>
 <% else %>
+  <h2 class="mb-3"><%= @idea.name %></h2>
+
   <%= form_tag idea_path, method: 'patch', id: @idea.id,  class: 'edit-idea-form' do %>
-    <h1><%= @idea.name %></h1>
 
-    <p>
-      <%= label_tag :goal %>
-      <%= text_field_tag :goal, @version_content.goal %>
-    </p>
-
-    <div>
-      <p>
-        <%= label_tag :content %>
-      </p>
-      <%= text_area_tag :content, @version_content.content %>
+    <div class="form-group">
+      <%= label_tag :goal, nil, class: 'form-control-label' %>
+      <%= text_field_tag :goal, @version_content.goal, class: 'form-control' %>
     </div>
 
-    <!-- TODO add published section here as well?? or elsewhere -->
+    <div class="form-group">
+      <%= label_tag :content, nil, class: 'form-control-label' %>
+      <%= text_area_tag :content, @version_content.content, class: 'form-control', rows: 5 %>
+    </div>
 
-    <%= submit_tag 'Update Idea', disabled: true, data: { disabled_with: 'Updating...' } %>
+    <div class="form-group">
+      <%= submit_tag 'Update Idea', disabled: true, data: { disabled_with: 'Updating...' }, class: 'btn btn-primary' %>
+    </div>
   <% end %>
 <% end %>
