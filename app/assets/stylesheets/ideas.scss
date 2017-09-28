@@ -1,3 +1,27 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.idea-container {
+  @include media-breakpoint-up(lg) {
+    justify-content: space-between;
+    @include make-sunny-row();
+
+    .idea.card {
+      flex: 0 0 auto;
+      width: 48.75%;
+    }
+  }
+
+  .idea.card {
+    margin-bottom: $spacer;
+  }
+}
+
+.idea-footer {
+  font-size: 0.9rem;
+
+  a {
+    margin: $spacer * 0.5;
+
+    @include media-breakpoint-down(sm) {
+      margin: $spacer * 0.25;
+    }
+  }
+}

@@ -10,16 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
 
-window.addEventListener('load', cleanUpWindowReady, false);
+document.addEventListener('turbolinks:load', mockPageLoad, false);
 
 //////
 
-function cleanUpWindowReady() {
-  window.removeEventListener('load', cleanUpWindowReady);
+function mockPageLoad() {
   findIdeaEditForms();
 }

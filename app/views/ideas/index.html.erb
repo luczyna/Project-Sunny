@@ -1,8 +1,11 @@
-<h1>Shared Ideas</h1>
+<h2 class="mb-3">Shared Ideas</h2>
+
 <% if @ideas.empty? %>
   <p>Looks like no one has shared any ideas <strong>yet...</strong></p>
 <% end %>
 
-<% @ideas.each_with_index do |idea, idea_index| %>
-  <p><%= link_to idea.name, idea %> - <em><%= idea.user.username %></em></p>
+<% unless @ideas.empty? %><div class="idea-container"><% end %>
+<% @ideas.each do |idea| %>
+  <%= render 'shared/idea_card', idea: idea, belongs_to_logged_in_user: false %>
 <% end %>
+<% unless @ideas.empty? %></div><% end %>
