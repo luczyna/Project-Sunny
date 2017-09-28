@@ -1,5 +1,5 @@
 <% if @warning %>
-  <p>Sorry, we can't find this particular idea.</p>
+  <%= render 'cant_find_warning' %>
 <% else %>
   <%= form_tag idea_path, method: 'patch', id: @idea.id,  class: 'edit-idea-form' do %>
     <h1><%= @idea.name %></h1>
