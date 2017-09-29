@@ -1,0 +1,24 @@
+<nav role="navigation" class="navbar navbar-light bg-light navbar-expand<% if current_user %>-sm<% end %> mb-3">
+  <%= link_to 'Project Sunny', root_path, :class => 'navbar-brand' %>
+
+  <% if current_user %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav let-it-grow">
+        <li class="nav-item"><%= link_to 'Ideas', ideas_path, :class => 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Your Dashboard', dashboard_path, :class => 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'New Idea', new_idea_path, :class => 'nav-link text-light btn btn-primary text-left' %></li>
+        <li class="nav-item nav-shove-when-inline"><span class="nav-link">hi <%= current_user.username %></span></li>
+        <li class="nav-item"><%= link_to 'Log out', log_out_path, :class => 'nav-link' %></li>
+      </ul>
+    </div>
+    <% else %>
+    <ul class="navbar-nav let-it-grow">
+      <li class="nav-item nav-shove-when-inline"><%= link_to 'Sign Up', sign_up_path, :class => 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Log in', log_in_path, :class => 'nav-link' %></li>
+    </ul>
+    <% end %>
+</nav>

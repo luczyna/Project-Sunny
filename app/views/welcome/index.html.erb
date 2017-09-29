@@ -1,2 +1,26 @@
-<h1>Welcome#index</h1>
-<p>Find me in</p>
+<section role="main" class="text-center mt-5">
+  <h1>Welcome to your sharing community</h1>
+  <p>Curate your ideas, and expand upon them. Share ideas with others, and give them an upvote on the ideas you like best.</p>
+
+  <h2>Have an idea?</h2>
+  <p>If that idea is burning a hole in your pocket, or it's not ready to be shared, <strong>write it down anyway!</strong> Develop the idea later, get it out of your head, and move on.</p>
+
+  <p>
+    <% if current_user %>
+    <%= link_to 'write that idea down', new_idea_path, :class => "btn btn-primary" %>
+    <% else %>
+    <%= link_to 'log in', log_in_path, :class => "btn btn-outline-primary" %> or
+    <%= link_to 'sign up!', log_in_path, :class => "btn btn-primary" %>
+    <% end %>
+  </p>
+
+  <h2>Share your best!</h2>
+  <p>You can publish an idea at anytime, and still work on it afterwards, too. You can also unpublish an idea if it's not up to your standards. Everyone here is encouraged to share their best ideas&mdash;you can only have 5 published ideas shared at any time.</p>
+
+  <h2>Like an idea you see?</h2>
+  <p>Someone has a great idea, so show them some support. Simply give them an upvote, and let them know.</p>
+
+  <% if current_user %>
+  <p><%= link_to 'find good ideas', ideas_path, :class => "btn btn-primary" %></p>
+  <% end %>
+</section>
