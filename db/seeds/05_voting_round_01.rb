@@ -17,4 +17,4 @@ Upvote.create(user: bana, version: get_latest_version('Move More'))
 Upvote.create(user: ana, version: get_latest_version('Get Ready for October'))
 
 # Ana likes Lana's Running Idea
-Upvote.create(user: ana, version: get_latest_version('Get Ready for October'))
+Upvote.create(user: ana, version: get_latest_version('Running for 5k'))
